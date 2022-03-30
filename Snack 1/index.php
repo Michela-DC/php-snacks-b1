@@ -49,20 +49,34 @@ $partite = [
     
     <h3>Giornata del 29/03/2022</h3>
     
-    <?php 
-        for($i = 0; $i < count($partite); $i++) {
-            ?>
+    <ul>
+        <?php 
+            for($i = 0; $i < count($partite); $i++) {
+                ?>
+                <li>
+                    <?php echo $partite[$i]['casa'];?> - 
+                    <?php echo $partite[$i]['ospite'];?> |
+                    <?php echo $partite[$i]['punti_casa'];?> - 
+                    <?php echo $partite[$i]['punti_ospite'];?> 
+                </li>
+                <?php
+            }
+        ?>
+    </ul>
 
-            <li>
-                <?php echo ($partite[$i]['casa']);?> - 
-                <?php echo ($partite[$i]['ospite']);?> |
-                <?php echo ($partite[$i]['punti_casa']);?> - 
-                <?php echo ($partite[$i]['punti_ospite']);?> 
-            </li>
-
-            <?php
-        }
-    ?>
+    <h3>Con interpolazione:</h3>
+    
+    <ul>
+        <?php 
+            for($i = 0; $i < count($partite); $i++) {
+                ?>
+                <li>
+                    <?php echo "{$partite[$i]['casa']} - {$partite[$i]['ospite']} | {$partite[$i]['punti_casa']} - {$partite[$i]['punti_ospite']}";?> 
+                </li>
+                <?php
+            }
+        ?>
+    </ul>
 
 </body>
 </html>

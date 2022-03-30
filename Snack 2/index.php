@@ -25,11 +25,11 @@ Se tutto è ok stampare “Accesso riuscito”, altrimenti “Accesso negato” 
             $length = strlen($name);
             $has_dot = strpos($email, '.'); // strpos() function is used to find the occurrence of one string inside another one
             $has_at = strpos($email, '@'); 
-            $is_number = intval($age);// intval — Get the integer value of a variable
+            $is_number = is_numeric($age);
             var_dump($is_number);
             // oppure potevo fare $is_number = is_nan($age); e come condizione mettere !$is_number perché is_nan — Finds whether a value is not a number
 
-            if($length && $has_dot && $has_at && $is_number){
+            if($length > 3 && $has_dot && $has_at && $is_number){
                 ?>
                 <h3>Accesso riuscito!</h3>
                 <?php

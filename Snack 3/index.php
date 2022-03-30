@@ -50,19 +50,32 @@ $keys = array_keys($posts); //salvo le keys dell'array che nell'array post sono 
 
 for($i = 0; $i < count($keys); $i++){
 
-    $data = $keys [$i]; //prendo la data nella posizione corrente $i
+    $data = $keys[$i]; //prendo la data nella posizione corrente $i
 
     echo 'Data:' .$data. '<br>';
 
-    $post_per_data = $posts[$data];
-    var_dump($post_per_data);
+    $post_per_data = $posts[$data]; //salvo l'array con dentro i post suddivisi per data
 
     for($j = 0; $j < count($post_per_data); $j++){
 
-        $post = $post_per_data[$j];
+        $post = $post_per_data[$j]; //prendo il post corrente nella data corrente
         echo $post['title']. ' - autore: ' .$post['author'] . '<br>'. $post['text']. '<br> <br>'; //concatenazione
     }
 }
+
+//Soluzione con foreach:
+// foreach($posts as $key => $value){
+//     echo $key. '<br>';
+//     var_dump($value);
+
+//     foreach($value as $post){ //accedo 
+//         // var_dump($post);
+//         foreach($post as $key => $val) {
+//            echo  "$key : $val <br><br>";
+//         }
+//     }
+
+// }
 
 ?>
 

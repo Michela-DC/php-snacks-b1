@@ -19,54 +19,23 @@ $alunni = [
     [
         'nome' => 'Marco',
         'cognome' => 'Verdi',
-        'voti' => [
-            '7',
-            '6',
-            '6',
-            '8',
-        ]
+        'voti' => ['7','6','6','8',]
     ],
 
     [
         'nome' => 'Elisa',
         'cognome' => 'Rossi',
-        'voti' => [
-            '7',
-            '8',
-            '8',
-            '6',
+        'voti' => ['7','8','8','6',
         ]
     ],
 
     [
         'nome' => 'Giulia',
         'cognome' => 'Lira',
-        'voti' => [
-            '8',
-            '8',
-            '9',
-            '7',
+        'voti' => ['8','8','9','7',
         ]
     ],
 ];
-
-// for($i = 0; $i < count($alunni); $i++){
-//     var_dump($alunni[$i]['nome'], $alunni[$i]['cognome']);
-    
-//     //ogni volta che si entra nell'array di un nuovo studente il totale e la media dei voti vanno a 0
-//     $totale = 0; 
-//     $media = 0;
-    
-//     for($j = 0; $j < count($alunni[$i]['voti']); $j++){
-//         $voto = $alunni[$i]['voti'][$j];
-//         var_dump($voto);
-
-//         $totale = $totale + $voto;
-//         $media = $totale / count($alunni[$i]['voti']);
-//     }
-
-//     var_dump($totale, $media);
-// }
 
 ?>
 
@@ -80,30 +49,26 @@ $alunni = [
 </head>
 <body>
 
-<?php
-    for($i = 0; $i < count($alunni); $i++){
-        //ogni volta che si entra nell'array di un nuovo studente il totale e la media dei voti vanno a 0
-        $totale = 0; 
-        $media = 0;
-        
-        for($j = 0; $j < count($alunni[$i]['voti']); $j++){
-            $voto = $alunni[$i]['voti'][$j];
-    
-            $totale = $totale + $voto;
-            $media = $totale / count($alunni[$i]['voti']);
-        }
-        ?>
-        
-        <li>
-            Alunna/o: 
-            <span> <?php echo $alunni[$i]['nome'];?> </span>
-            <span> <?php echo $alunni[$i]['cognome'];?> </span>
-            --> Media voti = <span> <?php echo $media;?> </span>
-        </li>
+    <ul>
+    <?php
+        for($i = 0; $i < count($alunni); $i++){
 
-        <?php
-    }
-?>
+            $studente = $alunni[$i];
+            $voti = $studente['voti'];
+            $media = array_sum($voti) / count($alunni);
+            
+            ?>
+            
+            <li> 
+                <?php 
+                echo 'Alunna/o: '. $studente['nome']. ' '. $studente['cognome']. '--> Media voti = '. $media;
+                ?> 
+            </li>
+        
+            <?php
+        }
+    ?>
+    </ul>
     
 </body>
 </html>

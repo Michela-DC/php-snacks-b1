@@ -26,6 +26,40 @@ Stampiamo il nostro array mettendo gli insegnanti in un rettangolo grigio e i PM
         ]
     ];
 
+    $keys = array_keys($db);
+    // var_dump($keys);
+
+    // for($i = 0; $i < count($keys); $i++) {
+    //     // echo $keys[$i];
+
+    //     $role = $keys[$i];
+    //     echo $role;
+
+    //     $person_in_role = $db[$role]; 
+    //     // var_dump($person_in_role);
+
+    //     if($role === 'teachers') {
+    //         echo 'ciao';
+
+    //         for($j = 0; $j < count($person_in_role); $j++){
+    //             $current_person = $person_in_role[$j];
+    
+    //             echo $current_person['name']. ' '. $current_person['lastname']. '<br>';
+    //         }
+
+    //     } else{
+    //         echo 'weila';
+
+    //         for($j = 0; $j < count($person_in_role); $j++){
+    //             $current_person = $person_in_role[$j];
+    
+    //             echo $current_person['name']. ' '. $current_person['lastname']. '<br>';
+    //         }
+    //     }
+
+
+    // }
+
 ?>
 
 <!DOCTYPE html>
@@ -38,8 +72,50 @@ Stampiamo il nostro array mettendo gli insegnanti in un rettangolo grigio e i PM
     <title>Snack 6</title>
 </head>
 <body>
+<?php
+    for($i = 0; $i < count($keys); $i++) {
 
-    <div class="gray common">
+        $role = $keys[$i];
+        
+        $person_in_role = $db[$role]; 
+        // var_dump($person_in_role);
+
+        if($role === 'teachers') {
+            ?>
+            <div class="common gray">
+                <?php
+                echo $role. '<br>';
+
+                for($j = 0; $j < count($person_in_role); $j++){
+                    $current_person = $person_in_role[$j];
+        
+                    echo $current_person['name']. ' '. $current_person['lastname']. '<br>';
+                }
+                ?>
+            </div>
+            <?php
+
+        } else{
+            ?>
+            <div class="common green">
+                <?php
+                echo $role. '<br>';
+
+                for($j = 0; $j < count($person_in_role); $j++){
+                    $current_person = $person_in_role[$j];
+        
+                    echo $current_person['name']. ' '. $current_person['lastname']. '<br>';
+                }
+                ?>
+            </div>
+            <?php
+        }
+    }
+?>
+
+<h3>Con soluzione 2</h3>
+
+<div class="gray common">
         <?php
             for($i = 0; $i < count($db['teachers']); $i++){
                 ?>
@@ -64,6 +140,5 @@ Stampiamo il nostro array mettendo gli insegnanti in un rettangolo grigio e i PM
             }
         ?>
     </div>
-
 </body>
 </html>
